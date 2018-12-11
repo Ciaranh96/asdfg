@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Artist } from '../artist';
-import { ARTISTS } from '../mock-artists';
+import { ArtistService } from '../artist.service';
 
 @Component({
   selector: 'app-artists',
@@ -9,16 +10,22 @@ import { ARTISTS } from '../mock-artists';
 })
 export class ArtistsComponent implements OnInit {
 
-  artists = ARTISTS;
   selectedArtist: Artist;
 
+  artists: Artist[];
 
-  constructor() { }
+  constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
+    this.getArtists();
   }
 
   onSelect(artist: Artist): void {
     this.selectedArtist = artist;
+  }
+
+  getArtists(): void {
+    this.artistService.getArtists()
+        .subscribe(artists => this.artists = artists);
   }
 }

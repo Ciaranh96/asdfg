@@ -6,12 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ArtistsComponent,
-    ArtistDetailComponent
+    ArtistDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
